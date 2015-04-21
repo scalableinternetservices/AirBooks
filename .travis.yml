@@ -1,3 +1,7 @@
 language: ruby
 rvm:
   - "2.2.1"
+env:
+  - DB=mysql
+before_script:
+  - mysql -e 'create database AirBooks_test'
