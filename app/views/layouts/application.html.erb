@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet">
-  <title>Airbooks</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet">
+        <title>Airbooks</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
 
-
-<div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="../" class="navbar-brand">AirBooks</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+              <div class="navbar-header">
+                <a href="../" class="navbar-brand">AirBooks</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                      <li>
+                        <p class="navbar-text" style="color:#ffffff">Logged in as <strong><%= current_user.email %></strong>.</p>
+                      </li>
+                      <li>
+                        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+                      </li>
+                      <li>
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                      </li>
+                  <% else %>
+                      <li>
+                        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+                      </li>
+                      <li>
+                        <%= link_to "Log in", new_user_session_path, :class => 'navbar-link'  %>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li>
-                <p class="navbar-text" style="color:#ffffff">Logged in as <strong><%= current_user.email %></strong>.</p>
-              </li>
-              <li>
-                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-              </li>
-              <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              </li>
-              <li>
-                <%= link_to "Log in", new_user_session_path, :class => 'navbar-link'  %>
-              </li>
-            <% end %>
+        <br/>
+        <div class="container">
+          <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
           </ul>
+
+          <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+
+          <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+
+          <%= yield %>
         </div>
-      </div>
-</div>
-
-
-<br/>
-<div class="container">
-<ul class="nav">
-  <li class="active"><a href="/">Home</a></li>
-</ul>
-
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-<%= yield %>
-</div>
-</body>
+    </body>
 </html>
