@@ -4,6 +4,4 @@ rvm:
 env:
   - DB=mysql
 before_script:
-  - mysql -e 'create database AirBooks_test;'
-  - mysql -e 'create database AirBooks_development;'
-  
+  - mysql -e 'create database myapp_test;' 
