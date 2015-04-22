@@ -984,3 +984,58 @@ Started GET "/" for ::1 at 2015-04-21 18:55:42 -0700
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-21 19:03:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 156ms (Views: 147.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-04-21 19:03:08 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 105ms (Views: 75.7ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-21 19:03:11 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-04-21 19:03:16 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WXWMTvWMan12xGViA2HEW5eDEXR/SXwu9rsDofEh9Sc4m81ClSWuT1sGaDZ64u9w+/g3zww2soH9kzgsOq+XPQ==", "user"=>{"email"=>"test1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test1@test.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-04-22 01:55:37', `current_sign_in_at` = '2015-04-22 02:03:16', `sign_in_count` = 8, `updated_at` = '2015-04-22 02:03:16' WHERE `users`.`id` = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-04-21 19:03:16 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 56ms (Views: 54.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-04-21 19:03:18 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w7NdYquY7yeZHpnrDQvarqBRRl7ui9wIPHkCn141T7IQaJx/v8gMYILi0Xgb95KvdoGJrPcO/tCp0nTvXUp7nA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-04-21 19:03:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 44ms (Views: 43.4ms | ActiveRecord: 0.0ms)
