@@ -7,10 +7,9 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
-      <th>Isbn</th>
+      <th>ISBN</th>
       <th>Condition</th>
       <th>Comments</th>
-      <th>Owner email</th>
       <th colspan="20"></th>
     </tr>
   </thead>
@@ -23,10 +22,9 @@
         <td><%= book.isbn %></td>
         <td><%= book.condition %></td>
         <td><%= book.comments %></td>
-        <td><%= book.owner_email %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' } %></td>
       </tr>
     <% end %>
   </tbody>
