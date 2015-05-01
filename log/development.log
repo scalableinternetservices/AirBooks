@@ -2767,6 +2767,7 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.html.erb (0.2ms)
   Rendered devise/registrations/new.html.erb within layouts/application (3.0ms)
 Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+<<<<<<< Updated upstream
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
 Migrating to CreateBooks (20150427054259)
   [1m[35m (10.1ms)[0m  CREATE TABLE `books` (`id` int(11) auto_increment PRIMARY KEY, `book_id` varchar(255), `title` varchar(255), `author` varchar(255), `isbn` varchar(255), `condition` varchar(255), `comments` varchar(255), `owner_email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
@@ -7556,6 +7557,31 @@ Started GET "/apple-touch-icon-precomposed.png" for ::1 at 2015-04-30 17:57:51 -
 
 ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
   actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+=======
+
+
+Started GET "/" for ::1 at 2015-05-01 01:40:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+>>>>>>> Stashed changes
   web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
   actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
@@ -7576,6 +7602,7 @@ ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precom
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
   rack (1.6.0) lib/rack/content_length.rb:15:in `call'
   rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+<<<<<<< Updated upstream
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
@@ -7600,6 +7627,48 @@ Started GET "/apple-touch-icon.png" for ::1 at 2015-04-30 17:57:51 -0700
 
 ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
   actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+=======
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.1ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (51.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (115.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:40:57 -0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+>>>>>>> Stashed changes
   web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
   actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
@@ -7620,6 +7689,7 @@ ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
   rack (1.6.0) lib/rack/lock.rb:17:in `call'
   rack (1.6.0) lib/rack/content_length.rb:15:in `call'
   rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+<<<<<<< Updated upstream
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
   /Users/neerav/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
@@ -7729,3 +7799,579 @@ Processing by BooksController#index as HTML
   [1m[36mBook Load (0.3ms)[0m  [1mSELECT `books`.* FROM `books`[0m
   Rendered books/index.html.erb within layouts/application (2.7ms)
 Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.6ms)
+=======
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (45.9ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (95.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddNameToUsers (20150424235420)
+  [1m[35m (65.2ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36m (27.6ms)[0m  [1mALTER TABLE `users` ADD `phone` varchar(255)[0m
+  [1m[35m (19.0ms)[0m  ALTER TABLE `users` ADD `location` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150424235420')
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.9ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for ::1 at 2015-05-01 01:41:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 158ms (Views: 147.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-01 01:41:19 -0700
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-01 01:41:33 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 121ms (Views: 86.9ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-01 01:41:37 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 46ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-01 01:41:39 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:41:40 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+>>>>>>> Stashed changes
+
+
+Started GET "/" for ::1 at 2015-05-01 01:47:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (46.9ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/divakarbala/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (99.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateBooks (20150427054259)
+  [1m[35m (22.3ms)[0m  CREATE TABLE `books` (`id` int(11) auto_increment PRIMARY KEY, `book_id` varchar(255), `title` varchar(255), `author` varchar(255), `isbn` varchar(255), `condition` varchar(255), `comments` varchar(255), `owner_email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150427054259')
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeBookColumn (20150429081354)
+  [1m[35m (15.1ms)[0m  ALTER TABLE `books` CHANGE `comments` `comments` text DEFAULT NULL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150429081354')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'books'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `books`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for ::1 at 2015-05-01 01:47:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 358ms (Views: 347.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/books.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-01 01:47:55 -0700
+
+
+Started GET "/assets/scaffolds.self-c45201c8352e76c89b6f215269eb13b672ffbe8a07288c4121bce4f710be0003.css?body=1" for ::1 at 2015-05-01 01:47:55 -0700
+
+
+Started GET "/assets/books.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-01 01:47:55 -0700
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-01 01:47:58 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 104ms (Views: 64.8ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-01 01:48:03 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-01 01:48:13 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-01 01:48:25 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9xO7d9EAIbIbUGKmkUfGTRZeADw1R8e/cmz2nqsv/2LOnI8rcKXRUGgJ7EAVt1BWmwfAtnqA5HCVo757kJOnNg==", "user"=>{"email"=>"test1@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test1@test.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-04-22 02:38:37', `current_sign_in_at` = '2015-05-01 08:48:25', `sign_in_count` = 11, `updated_at` = '2015-05-01 08:48:25' WHERE `users`.`id` = 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 94ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:48:25 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/books/new" for ::1 at 2015-05-01 01:48:36 -0700
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered books/_form.html.erb (6.8ms)
+  Rendered books/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 63ms (Views: 53.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:48:40 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-01 01:48:45 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nVVNjxCq4FvdP9sMUTXVjBigvBk8/fXrRrfF+8p3LiXz0A1eQf7Xfvc4t/VXGiW8rhO4SZZlCsNJJgXE89yt1Q=="}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:48:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-01 01:48:59 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-01 01:49:01 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 01:49:23 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books" for ::1 at 2015-05-01 01:49:27 -0700
+Processing by BooksController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-01 01:49:27 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-01 01:52:38 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SNNDkl+JlGp/rfjRQqIi9ZzBrphqG4fXa715W+tPql0Du5x5PKJ5C8rdX1RIXvveWSWj9iv1aOpOHu56ZkulIA==", "user"=>{"name"=>"test", "email"=>"test1@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 128ms (Views: 42.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2015-05-01 01:53:00 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5jdSmjJ7o2F0Rfvk9dl4WhWu/ZArQGPCBZePFEWEqBOtX41xUVBOAME1XGH/JaFx0Erw/mqujP8gNBg1yICnbg==", "user"=>{"name"=>"test", "email"=>"test2@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test2@test.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test', 'test2@test.com', '$2a$10$4/UTHnFPCNv.2nq6xvc7nOYneflUE8piW.QUTkz5uPRqdYQl.lE.G', '2015-05-01 08:53:00', '2015-05-01 08:53:00')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-05-01 08:53:00', `current_sign_in_at` = '2015-05-01 08:53:00', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2015-05-01 08:53:00' WHERE `users`.`id` = 2
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books
+Completed 302 Found in 76ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/books" for ::1 at 2015-05-01 01:53:00 -0700
+Processing by BooksController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT `books`.* FROM `books`[0m
+  Rendered books/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:19:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 209ms (Views: 175.7ms | ActiveRecord: 23.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-05-01 02:19:18 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jxLXyOxPMAnkkDRq+ihbrKdzi5SQf8ZgYvASDUCa2cfEeggjj2TdaFHgk+/w1IKHYpeG+tGRKV1HU4UszZ7Wug=="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:19:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:19:21 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 55ms (Views: 54.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-05-01 02:19:22 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 88ms (Views: 87.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-05-01 02:19:39 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hr7QAByihMN+tat4StZDLu6zGLvTUQi+zjH7KkwwYCnaPlVz1FiWnGTiycKaW2Dq4GXuH6LXYB33+IPeASz/lQ==", "user"=>{"name"=>"A", "email"=>"a@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: password_confirmation
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'a@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('A', 'a@test.com', '$2a$10$k5awcINjKimNdhpNM4O/KOYTQEROjMTKqLRVhIK6uYR3mpRw7GjU.', '2015-05-01 09:19:39', '2015-05-01 09:19:39')
+  [1m[36m (17.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-05-01 09:19:39', `current_sign_in_at` = '2015-05-01 09:19:39', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2015-05-01 09:19:39' WHERE `users`.`id` = 3[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 112ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:19:39 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 31.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:20:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 179ms (Views: 160.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/books/new" for ::1 at 2015-05-01 02:20:44 -0700
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered books/_form.html.erb (29.7ms)
+  Rendered books/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 101ms (Views: 71.7ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:20:47 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:29:26 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 57ms (Views: 52.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/books/new" for ::1 at 2015-05-01 02:29:29 -0700
+Processing by BooksController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered books/_form.html.erb (2.1ms)
+  Rendered books/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 42ms (Views: 33.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/books" for ::1 at 2015-05-01 02:29:44 -0700
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d6ECijOwRI7NMOyIZi41C2gkh41Gzz4LnydGdx1PBoIrIYf5+0pW0ddnjjK2oxbPZvJxKTdJVqim7j6DUFOZPg==", "book"=>{"title"=>"Book1", "author"=>"Author1", "isbn"=>"900", "condition"=>"New", "comments"=>"test"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `books` (`title`, `author`, `isbn`, `condition`, `comments`, `created_at`, `updated_at`) VALUES ('Book1', 'Author1', '900', 'New', 'test', '2015-05-01 09:29:44', '2015-05-01 09:29:44')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/books/1" for ::1 at 2015-05-01 02:29:44 -0700
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered books/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-05-01 02:34:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 41.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/books/new" for ::1 at 2015-05-01 02:34:47 -0700
+Processing by BooksController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered books/_form.html.erb (3.2ms)
+  Rendered books/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 56ms (Views: 46.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/books" for ::1 at 2015-05-01 02:35:03 -0700
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EAhpDBuboIN79LEG/+5Ji9M/o2ZMka8VA3CCrvQyIHlMiOx/02Gy3GGj07wvY2pP3elVwj0Xx7Y6ufpauS6/xQ==", "book"=>{"title"=>"Book2", "author"=>"Author2", "isbn"=>"9", "condition"=>"New", "comments"=>"test"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `books` (`title`, `author`, `isbn`, `condition`, `comments`, `owner_email`, `created_at`, `updated_at`) VALUES ('Book2', 'Author2', '9', 'New', 'test', 'a@test.com', '2015-05-01 09:35:03', '2015-05-01 09:35:03')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/books/2" for ::1 at 2015-05-01 02:35:03 -0700
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered books/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/books/new" for ::1 at 2015-05-01 02:36:29 -0700
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered books/_form.html.erb (1.7ms)
+  Rendered books/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/books" for ::1 at 2015-05-01 02:36:44 -0700
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"75AcxhCU+aLYFj2gNgL42dwgD2ynh7EOXTyP8ttkcSGzEJm12G7r/cJBXxrmj9sd0vb5yNYB2a1k9fcGlnjunQ==", "book"=>{"title"=>"book3", "author"=>"author3", "isbn"=>"9", "condition"=>"New", "comments"=>"test2"}, "commit"=>"Create Book"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `books` (`title`, `author`, `isbn`, `condition`, `comments`, `owner_email`, `created_at`, `updated_at`) VALUES ('book3', 'author3', '9', 'New', 'test2', 'a@test.com', '2015-05-01 09:36:44', '2015-05-01 09:36:44')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/books/3" for ::1 at 2015-05-01 02:36:44 -0700
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.2ms)[0m  SELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered books/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'books'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `books`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RemoveBookId (20150501094244)
+  [1m[35m (34.8ms)[0m  ALTER TABLE `books` DROP `book_id`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150501094244')
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'books'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `books`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/books" for ::1 at 2015-05-01 02:44:21 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by BooksController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT `books`.* FROM `books`[0m
+  Rendered books/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 283ms (Views: 220.4ms | ActiveRecord: 38.3ms)

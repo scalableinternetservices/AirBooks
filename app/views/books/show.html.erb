@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -23,11 +21,6 @@
 <p>
   <strong>Comments:</strong>
   <%= @book.comments %>
-</p>
-
-<p>
-  <strong>Owner email:</strong>
-  <%= @book.owner_email %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
