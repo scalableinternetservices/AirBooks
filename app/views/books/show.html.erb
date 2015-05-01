@@ -1,3 +1,4 @@
+<h1> Your Book Listing </h1>
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -16,6 +17,16 @@
 <p>
   <strong>Condition:</strong>
   <%= @book.condition %>
+</p>
+
+<p>
+  <strong>Daily Price:</strong>
+  <%= number_to_currency(@book.price) %>
+</p>
+
+<p>
+  <strong>Due Date:</strong>
+  <%= @book.due_date.to_formatted_s(:long) %>
 </p>
 
 <p>

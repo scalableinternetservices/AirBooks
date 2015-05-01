@@ -28,8 +28,8 @@
     <%= f.select(:condition, @condition_options) %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.label(:price, "Daily Price") %><br>
+    $<%= f.text_field(:price, size: 6) %>
   </div>
   <div class="field">
     <%= f.label :due_date %><br>
