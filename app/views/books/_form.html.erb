@@ -28,6 +28,14 @@
     <%= f.select(:condition, @condition_options) %>
   </div>
   <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select(:due_date, :order => [:month, :day, :year]) %>
+  </div>
+  <div class="field">
     <%= f.label :comments %><br>
     <%= f.text_area :comments, :rows => 3 %>
   </div>

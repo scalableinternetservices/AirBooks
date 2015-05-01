@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501094244) do
+ActiveRecord::Schema.define(version: 20150501103234) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20150501094244) do
     t.string   "condition",   limit: 255
     t.text     "comments",    limit: 65535
     t.string   "owner_email", limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.decimal  "price",                     precision: 8, scale: 2
+    t.date     "due_date"
   end
 
   create_table "users", force: :cascade do |t|
