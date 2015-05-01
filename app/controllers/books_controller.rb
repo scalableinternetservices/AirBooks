@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   # GET /books
   # GET /books.json
@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @condition_options = ["New", "Like New", "Good", "Fair", "Poor"]
   end
 
   # POST /books
