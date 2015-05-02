@@ -1,4 +1,9 @@
 <h1> Your Book Listing </h1>
+
+<p>
+  <%= image_tag @book.image.url(:medium) %>
+</p>
+
 <p>
   <strong>Title:</strong>
   <%= @book.title %>

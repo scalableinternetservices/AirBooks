@@ -1,7 +1,7 @@
 <%= form_for(@book) do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <h2><%= pluralize(@book.errors.count, 'error') %> prohibited this book from being saved:</h2>
 
       <ul>
       <% @book.errors.full_messages.each do |message| %>
@@ -20,16 +20,16 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label(:isbn, "ISBN") %><br>
+    <%= f.label(:isbn, 'ISBN') %><br>
     <%= f.text_field :isbn %>
   </div>
   <div class="field">
     <%= f.label :condition %><br>
-    <%= f.select(:condition, @condition_options) %>
+    <%= f.select(:condition, ['New', 'Like New', 'Good', 'Fair', 'Poor']) %>
   </div>
   <div class="field">
-    <%= f.label(:price, "Daily Price") %><br>
-    $<%= f.text_field(:price, size: 6) %>
+    <%= f.label(:price, 'Daily Price') %><br>
+    $  <%= f.text_field(:price, size: 6) %>
   </div>
   <div class="field">
     <%= f.label :due_date %><br>
@@ -38,6 +38,10 @@
   <div class="field">
     <%= f.label :comments %><br>
     <%= f.text_area :comments, :rows => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
   </div>
   <div class="actions">
     <%= f.submit %>

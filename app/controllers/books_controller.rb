@@ -16,12 +16,10 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    @condition_options = ["New", "Like New", "Good", "Fair", "Poor"]
   end
 
   # GET /books/1/edit
   def edit
-    @condition_options = ["New", "Like New", "Good", "Fair", "Poor"]
   end
 
   # POST /books
@@ -31,7 +29,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: "Book was successfully created." }
+        format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -71,6 +69,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:book_id, :title, :author, :isbn, :condition, :price, :due_date, :comments).merge(owner_email: current_user.email)
+      params.require(:book).permit(:title, :author, :isbn, :condition, :price, :due_date, :comments, :image).merge(owner_email: current_user.email)
     end
 end
