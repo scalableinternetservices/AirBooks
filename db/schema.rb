@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501103234) do
+ActiveRecord::Schema.define(version: 20150502015608) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20150501103234) do
     t.decimal  "price",                     precision: 8, scale: 2
     t.date     "due_date"
   end
+
+  create_table "user_balances", force: :cascade do |t|
+    t.decimal  "balance",              precision: 8, scale: 2, default: 0.0, null: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+    t.integer  "user_id",    limit: 4
+  end
+
+  add_index "user_balances", ["user_id"], name: "index_user_balances_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -42,9 +51,15 @@ ActiveRecord::Schema.define(version: 20150501103234) do
     t.string   "name",                   limit: 255
     t.string   "phone",                  limit: 255
     t.string   "location",               limit: 255
+    t.integer  "balance_id",             limit: 4
+    t.integer  "user_balance_id",        limit: 4
   end
 
+  add_index "users", ["balance_id"], name: "index_users_on_balance_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["user_balance_id"], name: "index_users_on_user_balance_id", using: :btree
 
+  add_foreign_key "user_balances", "users"
+  add_foreign_key "users", "user_balances"
 end
