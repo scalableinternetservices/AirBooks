@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'balance' => 'balance#index', as: :user_balance
+
+  get 'balance/add'
+
+  get 'balance/remove'
+  patch 'balance' => 'balance#update'
+  put 'balance' => 'balance#update'
+
   get 'search/results/' => 'search#results'
 
 

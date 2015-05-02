@@ -1,0 +1,37 @@
+<h1>Add Funds to Balance</h1>
+<p>Current Balance: <%= number_to_currency(@balance.balance) %></p>
+
+
+<div class="row">
+  <div class="col-sm-5">
+
+    <%= form_for @balance, url: user_balance_path do |f| %>
+      <% if @balance.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@balance.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+          <ul>
+          <% @balance.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label(:balance, 'Funds To Add') %><br>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <%= f.text_field :balance, :value => '0.00', :maxlength => 6, :class => 'form-control' %>
+        </div>
+      </div>
+      <%= f.hidden_field 'update_type', :value => 'add' %>
+      <div class="actions">
+        <%= f.submit "Add Funds", :class => 'btn btn-default' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<%= link_to 'Back', user_balance_path %>
