@@ -7,7 +7,7 @@
 
     <%= form_for @balance, url: user_balance_path do |f| %>
       <% if @balance.errors.any? %>
-        <div id="error_explanation">
+        <div id="error_explanation text-danger">
           <h2><%= pluralize(@balance.errors.count, 'error') %> prohibited this book from being saved:</h2>
 
           <ul>

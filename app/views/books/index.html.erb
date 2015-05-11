@@ -22,7 +22,11 @@
         <td>
           <h4><%= link_to book.title, book %></h4>
           <br> by <%= book.author %>
-          <br> <%= number_to_currency(book.price) %> per day
+          <br>  <% if number_to_currency(book.price) != '$0.00' %>
+              <%= number_to_currency(book.price) %> per day
+          <% else %>
+              Free
+          <% end %>
           <br> <%= book.condition %>
           <br> Due at <%= book.due_date.strftime('%m/%d/%Y') %>
         </td>

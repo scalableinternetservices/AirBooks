@@ -1,6 +1,6 @@
 <%= form_for(@book, html: { class: 'form-horizontal'}) do |f| %>
   <% if @book.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation text-danger">
       <h2><%= pluralize(@book.errors.count, 'error') %> prohibited this book from being saved:</h2>
       <ul>
       <% @book.errors.full_messages.each do |message| %>
@@ -14,7 +14,7 @@
     <div class="form-group">
       <%= f.label :title, class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.text_field :title, :required => true, class: 'form-control' %>
       </div>
       <div class="col-lg-5">
       </div>
@@ -23,7 +23,7 @@
     <div class="form-group">
       <%= f.label :author, class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
-        <%= f.text_field :author, class: 'form-control' %>
+        <%= f.text_field :author, :required => true, class: 'form-control' %>
       </div>
       <div class="col-lg-5">
       </div>
@@ -32,7 +32,7 @@
     <div class="form-group">
       <%= f.label :isbn, 'ISBN', class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
-        <%= f.text_field :isbn, class: 'form-control' %>
+        <%= f.text_field :isbn, :required => true, class: 'form-control' %>
       </div>
       <div class="col-lg-5">
       </div>
@@ -52,7 +52,7 @@
       <div class="col-lg-6">
         <div class="input-group">
           <div class="input-group-addon">$</div>
-          <%= f.text_field :price, :value => '0.00', maxlength: 6, :class => 'form-control' %>
+          <%= f.text_field :price, :required => true, maxlength: 6, :class => 'form-control' %>
         </div>
       </div>
       <div class="col-lg-5">
@@ -62,7 +62,7 @@
     <div class="form-group">
       <%= f.label :due_date, class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
-        <%= f.date_select(:due_date, :order => [:month, :day, :year], class: 'form-control') %>
+        <%= f.date_select(:due_date, :required => true, :order => [:month, :day, :year], class: 'form-control') %>
       </div>
       <div class="col-lg-5">
       </div>
@@ -80,7 +80,7 @@
     <div class="form-group">
       <%= f.label :image, class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
-        <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg', class: 'btn btn-file' %>
+        <%= f.file_field :image, :required => true, accept: 'image/png,image/gif,image/jpeg', class: 'btn btn-file' %>
       </div>
       <div class="col-lg-5">
       </div>
