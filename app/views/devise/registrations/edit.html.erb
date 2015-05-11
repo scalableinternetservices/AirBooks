@@ -3,6 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
+
   <fieldset>
     <div class="form-group">
       <%= f.label :name, class: 'col-lg-1 control-label' %>
@@ -71,8 +72,12 @@
       </div>
     </div>
 
-    <div class="actions">
-        <%= f.submit 'Update', :class=> 'btn btn-default' %>
+    <div class="form-group">
+      <div class="col-lg-11 col-lg-offset-1">
+        <div class="actions">
+          <%= f.submit 'Update', :class=> 'btn btn-primary' %>
+        </div>
+      </div>
     </div>
   </fieldset>
 <% end %>
