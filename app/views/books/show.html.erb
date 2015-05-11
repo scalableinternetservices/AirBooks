@@ -1,43 +1,32 @@
 <h1> Your Book Listing </h1>
 
-<p>
-  <%= image_tag @book.image.url(:medium) %>
-</p>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th style="width: 27%"></th>
+    <th style="width: 73%"></th>
+  </tr>
+  </thead>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+  <tbody>
+    <tr>
+      <td class="text-center">
+        <%= link_to @book do %>
+          <%= image_tag @book.image.url(:medium) %>
+        <% end %>
+      </td>
+      <td>
+        <h3><%= @book.title %></h3>
+        <br> <strong>Author:</strong> <%= @book.author %>
+        <br> <strong>Daily Price:</strong> <%= number_to_currency(@book.price) %>
+        <br> <strong>Condition:</strong> <%= @book.condition %>
+        <br> <strong>Due date:</strong> <%= @book.due_date.to_formatted_s(:long) %>
+        <br> <strong>Comments:</strong>
+        <br> <%= @book.comments %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Condition:</strong>
-  <%= @book.condition %>
-</p>
-
-<p>
-  <strong>Daily Price:</strong>
-  <%= number_to_currency(@book.price) %>
-</p>
-
-<p>
-  <strong>Due Date:</strong>
-  <%= @book.due_date.to_formatted_s(:long) %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @book.comments %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Your book listings', books_path %>
+<%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
+<%= link_to 'Your book listings', books_path, class: 'btn btn-default' %>
