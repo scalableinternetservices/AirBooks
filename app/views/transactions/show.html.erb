@@ -1,0 +1,46 @@
+<h1> Your Transaction </h1>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @transaction.start_date.to_formatted_s(:long) %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if !@transaction.end_date.nil? %>
+    Closed on <%= @transaction.end_date.to_formatted_s(:long) %></td>
+  <% else %>
+    Due on <%= get_book(@transaction.book_id).due_date.to_formatted_s(:long) %></td>
+  <% end %>
+</p>
+
+<p>
+  <strong>Total Price:</strong>
+  <%= @transaction.price %>
+</p>
+
+<p>
+  <strong>Average Price Per Day:</strong>
+  <%= @transaction.price * (Date.today - @transaction.start_date.to_date).to_i %>
+</p>
+
+<p>
+  <strong>Book Title:</strong>
+  <%= get_book(@transaction.book_id).title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= get_book(@transaction.book_id).author %>
+</p>
+
+<p>
+  <strong>Book Owner:</strong>
+  <%= get_seller(@transaction.seller_email).name %>
+</p>
+
+<% if @transaction.end_date.nil? %>
+  <%= link_to 'Return Book', @transaction, method: :delete, data: { confirm: 'Are you sure you want to return this book?' } %> |
+<% else %>
+<% end %> 
+<%= link_to 'Your Transactions', transactions_path %>

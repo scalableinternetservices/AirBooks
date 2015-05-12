@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502105653) do
+ActiveRecord::Schema.define(version: 20150512091701) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -20,14 +20,27 @@ ActiveRecord::Schema.define(version: 20150502105653) do
     t.string   "condition",          limit: 255
     t.text     "comments",           limit: 65535
     t.string   "owner_email",        limit: 255
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.datetime "created_at",                                                               null: false
+    t.datetime "updated_at",                                                               null: false
     t.decimal  "price",                            precision: 8, scale: 2
     t.date     "due_date"
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.string   "genre",              limit: 255
+    t.boolean  "checked_out",        limit: 1,                             default: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string   "buyer_email",  limit: 255
+    t.string   "seller_email", limit: 255
+    t.integer  "book_id",      limit: 4
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.decimal  "price",                    precision: 8, scale: 2
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
   create_table "user_balances", force: :cascade do |t|

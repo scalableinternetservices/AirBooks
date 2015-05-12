@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Transactions</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Start Date</th>
+      <th>Status</th>
+      <th>Book Title</th>
+      <th>Book Author</th>
+      <th>Total Price</th>
+      <th>Owner</th>
+      <th colspan="20"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.start_date.strftime('%m/%d/%Y') %></td>
+        <% if !transaction.end_date.nil? %>
+          <td style="color:green">Closed on <%= transaction.end_date.strftime('%m/%d/%Y') %></td>
+        <% else %>
+          <td style="color:red">Due on <%= get_book(transaction.book_id).due_date.strftime('%m/%d/%Y') %></td>
+        <% end %>
+        <td><%= get_book(transaction.book_id).title %></td>
+        <td><%= get_book(transaction.book_id).author %></td>
+        <td><%= transaction.price * (Date.today - transaction.start_date.to_date).to_i %></td>
+        <td><%= transaction.seller_email %></td>
+        <td><%= link_to 'View', transaction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</table>
+
+<br>

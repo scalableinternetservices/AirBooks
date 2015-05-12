@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <h1>Your Book Listings</h1>
 
@@ -22,18 +22,51 @@
         <td>
           <h4><%= link_to book.title, book %></h4>
           <br> by <%= book.author %>
-          <br>  <% if number_to_currency(book.price) != '$0.00' %>
+          <br>
+          <% if number_to_currency(book.price) != '$0.00' %>
               <%= number_to_currency(book.price) %> per day
           <% else %>
               Free
           <% end %>
           <br> <%= book.condition %>
-          <br> Due at <%= book.due_date.strftime('%m/%d/%Y') %>
+          <br>
+          <% if book.due_date == DateTime.new(2000,1,1) %>
+            Unlisted
+          <% else %>
+            Due by <%= book.due_date.strftime('%m/%d/%Y') %>
+          <% end %>
         </td>
-
         <td>
           <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-primary' %>
-          <%= link_to 'Delete', book, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this listing?' } %></a>
+          <% if book.due_date == DateTime.new(2000,1,1) %>
+              <div class="modal fade" id=<%= "relistBook#{book.id}" %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title"><strong>Relist <%= book.title %></strong></h4>
+                    </div>
+                    <div class="modal-body">
+                      <%= form_tag("/books/update", method: "post", id: "relistBookForm#{book.id}") do %><br/>
+                          <%= label_tag(:price, "Daily Price") %>
+                          <%= text_field_tag(:price) %> <br/><br/><br/>
+                          <%= label_tag ("Due date:") %>
+                          <%= date_select("book_relist", "due_date", order: [:month, :day, :year])%><br/>
+                          <%= hidden_field_tag(:from, "relist") %>
+                          <%= hidden_field_tag(:id, book.id) %>
+                      <% end %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" form=<%= "relistBookForm#{book.id}"%> value="Submit" class="btn btn-success">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%= link_to "Relist", "#relistBook#{book.id}", "data-toggle" => "modal", class: 'btn btn-success'  %>
+          <% else %>
+              <%= link_to 'Unlist', book, method: :delete, data: { confirm: 'Are you sure you want to unlist this book?' }, class: 'btn btn-danger'  %>
+          <% end %>
         </td>
       </tr>
     <% end %>
@@ -41,4 +74,5 @@
 </table>
 
 <br>
-<%= link_to 'New Book', new_book_path, class: 'btn btn-info'  %>
+
+<%= link_to 'New Book', new_book_path, class: 'btn btn-info'   %>

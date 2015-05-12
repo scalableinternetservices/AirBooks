@@ -30,6 +30,15 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :genre, class: 'col-lg-1 control-label' %>
+      <div class="col-lg-6">
+        <%= f.select(:genre, ['Action and Adventure', 'Fantasy', 'Mystery', 'Non-fiction', 'Science Fiction', 'Romance', 'Thriller'], :include_blank => true, class: 'form-control') %>
+      </div>
+      <div class="col-lg-5">
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.label :isbn, 'ISBN', class: 'col-lg-1 control-label' %>
       <div class="col-lg-6">
         <%= f.text_field :isbn, :required => true, class: 'form-control' %>

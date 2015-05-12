@@ -25,7 +25,9 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    Rails.logger.debug("CREATING BOOK")
     @book = Book.new(book_params)
+    Rails.logger.debug(" BOOK CREATED due date: #{@book.due_date}")
 
     respond_to do |format|
       if @book.save
@@ -42,12 +44,21 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
+      if params[:from] == "relist"
+          Rails.logger.debug("REACHED HERE 567")
+          book_relist = params[:book_relist]
+          date = Date.new book_relist["due_date(1i)"].to_i, book_relist["due_date(2i)"].to_i, book_relist["due_date(3i)"].to_i
+          @book.update_attribute :due_date, date
+          @book.update_attribute :price, params[:price]
+          format.html { redirect_to books_url, notice: 'Book was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        if @book.update(book_params)
+          format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+          format.json { render :show, status: :ok, location: @book }
+        else
+          format.html { render :edit }
+          format.json { render json: @book.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -55,9 +66,9 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-    @book.destroy
+    @book.update_attribute :due_date, DateTime.new(2000,1,1)
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully deleted.' }
+      format.html { redirect_to books_url, notice: 'Book was successfully unlisted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +80,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :isbn, :condition, :price, :due_date, :comments, :image).merge(owner_email: current_user.email)
+      params.require(:book).permit(:title, :author, :isbn, :genre, :condition, :price, :due_date, :comments, :image).merge(owner_email: current_user.email)
     end
 end
