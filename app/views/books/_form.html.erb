@@ -1,7 +1,8 @@
-<%= form_for(@book, html: { class: 'form-horizontal'}) do |f| %>
+<%= form_for(@book) do |f| %>
   <% if @book.errors.any? %>
-    <div id="error_explanation text-danger">
+    <div id="error_explanation">
       <h2><%= pluralize(@book.errors.count, 'error') %> prohibited this book from being saved:</h2>
+
       <ul>
       <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,88 +11,43 @@
     </div>
   <% end %>
 
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :title, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.text_field :title, :required => true, class: 'form-control' %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :author, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.text_field :author, :required => true, class: 'form-control' %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :isbn, 'ISBN', class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.text_field :isbn, :required => true, class: 'form-control' %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :condition, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.select(:condition, ['New', 'Like New', 'Good', 'Fair', 'Poor'], class: 'form-control') %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :price, 'Daily Price', class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <div class="input-group">
-          <div class="input-group-addon">$</div>
-          <%= f.text_field :price, :required => true, maxlength: 6, :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :due_date, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.date_select(:due_date, :required => true, :order => [:month, :day, :year], class: 'form-control') %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :comments, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.text_area :comments, class: 'form-control' %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :image, class: 'col-lg-1 control-label' %>
-      <div class="col-lg-6">
-        <%= f.file_field :image, :required => true, accept: 'image/png,image/gif,image/jpeg', class: 'btn btn-file' %>
-      </div>
-      <div class="col-lg-5">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-lg-11 col-lg-offset-1">
-        <%= f.submit :class=> 'btn btn-primary' %>
-        <%= link_to 'Back', books_path, class: 'btn btn-warning' %>
-      </div>
-    </div>
-
-  </fieldset>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label(:isbn, 'ISBN') %><br>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.select(:genre, ['Action and Adventure', 'Fantasy', 'Mystery', 'Non-fiction', 'Science Fiction', 'Romance', 'Thriller'], :include_blank => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.select(:condition, ['New', 'Like New', 'Good', 'Fair', 'Poor']) %>
+  </div>
+  <div class="field">
+    <%= f.label(:price, 'Daily Price') %><br>
+    $  <%= f.text_field(:price, size: 6) %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select(:due_date, :order => [:month, :day, :year]) %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments, :rows => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

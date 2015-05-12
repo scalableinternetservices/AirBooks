@@ -1,5 +1,5 @@
 <h1>Balance</h1>
 <h3>Current Balance: <%= number_to_currency(@balance.balance) %></h3>
-<br>
-<%= link_to 'Add Funds', balance_add_path, class: 'btn btn-primary' %>
-<%= link_to 'Remove Funds', balance_remove_path, class: 'btn btn-danger' %>
+
+<%= link_to "Add Funds", balance_add_path %>
+<%= link_to "Remove Funds", balance_remove_path %>

@@ -1,5 +1,5 @@
 <h1>Remove Funds From Balance</h1>
-<h3>Current Balance: <%= number_to_currency(@balance.balance) %></h3>
+<p>Current Balance: <%= number_to_currency(@balance.balance) %></p>
 
 
 <div class="row">
@@ -7,8 +7,8 @@
 
     <%= form_for @balance, url: user_balance_path do |f| %>
       <% if @balance.errors.any? %>
-        <div id="error_explanation text-danger">
-          <h2><%= pluralize(@balance.errors.count, 'error') %> prohibited this book from being saved:</h2>
+        <div id="error_explanation">
+          <h2><%= pluralize(@balance.errors.count, "error") %> prohibited this book from being saved:</h2>
 
           <ul>
           <% @balance.errors.full_messages.each do |message| %>
@@ -22,15 +22,16 @@
         <%= f.label(:balance, 'Funds To Remove') %><br>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-          <%= f.text_field :balance, :value => '0.00', maxlength: 6, :class => 'form-control' %>
+          <%= f.text_field :balance, :value => '0.00', :maxlength => 6, :class => 'form-control' %>
         </div>
       </div>
       <%= f.hidden_field 'update_type', :value => 'remove' %>
       <div class="actions">
-        <%= f.submit 'Remove Funds', :class => 'btn btn-primary' %>
-        <%= link_to 'Back', user_balance_path, class: 'btn btn-warning' %>
+        <%= f.submit "Remove Funds", :class => 'btn btn-default' %>
       </div>
     <% end %>
 
   </div>
 </div>
+
+<%= link_to 'Back', user_balance_path %>

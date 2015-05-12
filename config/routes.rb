@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
 
   resources :books
+  post 'books/update/' => 'books#update'
+  post 'transactions/create/' => 'transactions#create'
+  get 'transactions/return_book/' => 'transactions#return_book'
   get 'welcome/index'
 
   devise_for :users
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'account' => 'account#home', as: :account_home
+  resources :transactions
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

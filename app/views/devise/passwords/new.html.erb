@@ -1,9 +1,7 @@
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f| %>
-    <div class="text-danger">
-      <%= devise_error_messages! %>
-    </div>
+  <%= devise_error_messages! %>
     <fieldset>
       <div class="form-group">
         <%= f.label :email, class: 'col-lg-1 control-label' %>

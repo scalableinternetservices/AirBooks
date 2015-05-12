@@ -16,6 +16,8 @@
       <td>
         <h3><%= @book.title %></h3>
         <br> <strong>Author:</strong> <%= @book.author %>
+        <br> <strong>Genre:</strong> <%= @book.genre %>
+        <br> <strong>ISBN:</strong> <%= @book.isbn %>
         <br> <strong>Daily Price:</strong>
         <% if number_to_currency(@book.price) != '$0.00' %>
             <%= number_to_currency(@book.price) %>
@@ -33,3 +35,10 @@
 
 <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
 <%= link_to 'Your book listings', books_path, class: 'btn btn-default' %>
+
+<% if current_user.email != @book.owner_email && @book.checked_out == false %>
+  | <%= form_tag("/transactions/create", method: "post") do %>
+    <%= hidden_field_tag(:book_id, @book.id) %>
+    <%= submit_tag("Rent") %>
+  <% end %>
+<% end %>
