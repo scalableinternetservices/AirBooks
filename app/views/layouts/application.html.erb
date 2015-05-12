@@ -2,6 +2,10 @@
 <html>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet">
+        <% if controller_name == 'welcome' %>
+          <link rel="stylesheet" href="/assets/image-tile.csss">
+          <!-- stylesheet_link_tag 'metro-bootstrap-tile.min' %> -->
+        <% end %>
         <title>Airbooks</title>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -47,20 +51,26 @@
             </div>
         </div>
         <br/>
-        <div class="container">
-          <ul class="nav">
-            <li class="active"><a href="/">Home</a></li>
-          </ul>
 
-          <% if notice %>
+        <% if controller_name == 'welcome'%>
+          <% @container = 'container-fluid' %>
+        <% else %>
+          <% @container = 'container' %>
+        <% end %>
+
+          <div class = '<%= @container%>'>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+            </ul>
+
+            <% if notice %>
               <p class="alert alert-success"><%= notice %></p>
-          <% end %>
+            <% end %>
 
-          <% if alert %>
+            <% if alert %>
               <p class="alert alert-danger"><%= alert %></p>
-          <% end %>
-
-          <%= yield %>
-        </div>
+            <% end %>
+            <%= yield %>
+          </div>
     </body>
 </html>
