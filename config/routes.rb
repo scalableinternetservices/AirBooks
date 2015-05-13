@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   get 'search/results/' => 'search#results'
 
 
-  resources :books
+  resources :books do
+    resources :reviews
+  end
   post 'books/update/' => 'books#update'
+  
   post 'transactions/create/' => 'transactions#create'
   get 'transactions/return_book/' => 'transactions#return_book'
+  
   get 'welcome/index'
 
   devise_for :users
