@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @reviews = Book.find(@book).book_review.order("created_at DESC")
   end
 
   # GET /books/new
