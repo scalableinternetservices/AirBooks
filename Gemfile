@@ -30,6 +30,9 @@ gem 'devise'
 # Paperclip gem for attachment
 gem 'paperclip', '~> 4.2'
 
+# Seed dump creates seeds file from data in existing database
+gem 'seed_dump'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
