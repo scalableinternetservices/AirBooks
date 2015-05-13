@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502105653) do
+ActiveRecord::Schema.define(version: 20150512214857) do
+
+  create_table "book_reviews", force: :cascade do |t|
+    t.integer  "book_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.integer  "rating",     limit: 4,     null: false
+    t.text     "review",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "book_reviews", ["book_id"], name: "index_book_reviews_on_book_id", using: :btree
+  add_index "book_reviews", ["user_id"], name: "index_book_reviews_on_user_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -40,12 +52,12 @@ ActiveRecord::Schema.define(version: 20150502105653) do
   add_index "user_balances", ["user_id"], name: "index_user_balances_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255,                         default: "",  null: false
-    t.string   "encrypted_password",     limit: 255,                         default: "",  null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,                           default: 0,   null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -55,14 +67,17 @@ ActiveRecord::Schema.define(version: 20150502105653) do
     t.string   "name",                   limit: 255
     t.string   "phone",                  limit: 255
     t.string   "location",               limit: 255
-    t.decimal  "balance",                            precision: 8, scale: 2, default: 0.0, null: false
+    t.integer  "balance_id",             limit: 4
     t.integer  "user_balance_id",        limit: 4
   end
 
+  add_index "users", ["balance_id"], name: "index_users_on_balance_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["user_balance_id"], name: "index_users_on_user_balance_id", using: :btree
 
+  add_foreign_key "book_reviews", "books"
+  add_foreign_key "book_reviews", "users"
   add_foreign_key "user_balances", "users"
   add_foreign_key "users", "user_balances"
 end

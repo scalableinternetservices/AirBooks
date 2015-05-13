@@ -24014,3 +24014,66 @@ Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-01 21:46:16 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (11.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddAttachmentImageToBooks (20150502105653)
+  [1m[35m (96.7ms)[0m  ALTER TABLE `books` ADD `image_file_name` varchar(255)
+  [1m[36m (31.0ms)[0m  [1mALTER TABLE `books` ADD `image_content_type` varchar(255)[0m
+  [1m[35m (33.1ms)[0m  ALTER TABLE `books` ADD `image_file_size` int(11)
+  [1m[36m (37.2ms)[0m  [1mALTER TABLE `books` ADD `image_updated_at` datetime[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150502105653')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateBookReviews (20150512214857)
+  [1m[36m (23.2ms)[0m  [1mCREATE TABLE `book_reviews` (`id` int(11) auto_increment PRIMARY KEY, `book_id` int(11), `user_id` int(11), `rating` int(11) NOT NULL, `review` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_book_reviews_on_book_id`  (`book_id`) ,  INDEX `index_book_reviews_on_user_id`  (`user_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (29.7ms)[0m  ALTER TABLE `book_reviews` ADD CONSTRAINT `fk_rails_03b2f86d2c`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+
+  [1m[36m (20.9ms)[0m  [1mALTER TABLE `book_reviews` ADD CONSTRAINT `fk_rails_3bb9411f32`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150512214857')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (3.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'book_reviews'
+
+  [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `book_reviews`[0m
+  [1m[35m (0.4ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'books'
+
+  [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `books`[0m
+  [1m[35m (0.4ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'user_balances'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `user_balances`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'AirBooks_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `users`[0m

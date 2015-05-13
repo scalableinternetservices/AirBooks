@@ -1,0 +1,41 @@
+<%= form_for(@review, html: { class: 'form-horizontal'}) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation text-danger">
+      <h2><%= pluralize(@review.errors.count, 'error') %> prohibited this review from being saved:</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+
+    <div class="form-group">
+      <%= f.label :rating, class: 'col-lg-1 control-label' %>
+      <div class="col-lg-6">
+        <%= f.select(:rating, [1,2,3,4,5], class: 'form-control') %>
+      </div>
+      <div class="col-lg-5">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :review, class: 'col-lg-1 control-label' %>
+      <div class="col-lg-6">
+        <%= f.text_area :review, class: 'form-control' %>
+      </div>
+      <div class="col-lg-5">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-11 col-lg-offset-1">
+        <%= f.submit :class=> 'btn btn-primary' %>
+        <%= link_to 'Back', book_path(@book), class: 'btn btn-warning' %>
+      </div>
+    </div>
+
+  </fieldset>
+<% end %>

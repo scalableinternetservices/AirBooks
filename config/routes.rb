@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'search/results/' => 'search#results'
 
 
-  resources :books
+  resources :books do
+    resources :reviews
+  end
   get 'welcome/index'
 
   devise_for :users
