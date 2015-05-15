@@ -21,7 +21,8 @@ Book.create!([
   {title: "The Wright Brothers", author: "David McCullough", isbn: "978-1476728742", condition: "Like New", comments: "", owner_email: "test+dan@gmail.com", price: "0.68", due_date: "2015-12-13", image_file_name: "david.jpg", image_content_type: "image/jpeg", image_file_size: 43394, image_updated_at: "2015-05-13 23:46:04", genre: "Non-fiction", checked_out: false},
   {title: "Horton Hears A Who!", author: "Dr. Seuss", isbn: "978-0394800783", condition: "New", comments: "", owner_email: "test+dan@gmail.com", price: "0.12", due_date: "2015-11-15", image_file_name: "horton.jpg", image_content_type: "image/jpeg", image_file_size: 51159, image_updated_at: "2015-05-15 23:16:08", genre: "Fantasy", checked_out: false},
   {title: "Oh, The Places You'll Go!", author: "Dr. Seuss", isbn: "978-0679805274", condition: "Fair", comments: "", owner_email: "test+dan@gmail.com", price: "0.41", due_date: "2015-11-15", image_file_name: "ohthe.jpg", image_content_type: "image/jpeg", image_file_size: 51849, image_updated_at: "2015-05-15 23:18:49", genre: "Fantasy", checked_out: false},
-  {title: "The Great Gatsby", author: " F. Scott Fitzgerald", isbn: "978-0743273565", condition: "New", comments: "", owner_email: "test+robert@gmail.com", price: "0.32", due_date: "2016-01-15", image_file_name: "gatsby.jpg", image_content_type: "image/jpeg", image_file_size: 392134, image_updated_at: "2015-05-15 23:22:29", genre: "Action and Adventure", checked_out: false}
+  {title: "The Great Gatsby", author: " F. Scott Fitzgerald", isbn: "978-0743273565", condition: "New", comments: "", owner_email: "test+robert@gmail.com", price: "0.32", due_date: "2016-01-15", image_file_name: "gatsby.jpg", image_content_type: "image/jpeg", image_file_size: 392134, image_updated_at: "2015-05-15 23:22:29", genre: "Action and Adventure", checked_out: false},
+  {title: "The Lion, the Witch and the Wardrobe (The Chronicles of Narnia, Book 2)", author: " C. S. Lewis", isbn: "978-0064404990", condition: "Fair", comments: "", owner_email: "test+robert@gmail.com", price: "0.62", due_date: "2016-03-15", image_file_name: "narnia.jpg", image_content_type: "image/jpeg", image_file_size: 678232, image_updated_at: "2015-05-15 23:25:58", genre: "Fantasy", checked_out: false}
 ])
 BookReview.create!([
   {book_id: 1, user_id: 4, rating: 4, review: "hi there\r\n"},
@@ -38,7 +39,9 @@ BookReview.create!([
   {book_id: 12, user_id: 6, rating: 2, review: "this was alright"},
   {book_id: 12, user_id: 6, rating: 5, review: "My kid loved it!"},
   {book_id: 13, user_id: 7, rating: 4, review: "i read this in school. it was alright"},
-  {book_id: 13, user_id: 7, rating: 5, review: "classic!"}
+  {book_id: 13, user_id: 7, rating: 5, review: "classic!"},
+  {book_id: 14, user_id: 7, rating: 5, review: "great children's book!"},
+  {book_id: 14, user_id: 7, rating: 4, review: "awesome book to read!"}
 ])
 Transaction.create!([
   {buyer_email: "test+dan@gmail.com", seller_email: "test+adam@gmail.com", book_id: 7, start_date: "2015-05-14 00:22:19", end_date: "2015-05-15 23:11:07", price: "0.53"}
