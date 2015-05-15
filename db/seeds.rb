@@ -5,7 +5,7 @@ User.create!([
   {email: "abcdefg@gmail.com", encrypted_password: "$2a$10$lTDhdCgz2nmR4Rl2o0RKC.XlMM7gcZxs2AXaW26HsQIDRfUdvsPqy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-05-02 00:00:31", last_sign_in_at: "2015-05-02 00:00:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Matt 3", phone: nil, location: nil, balance_id: nil, user_balance_id: nil},
   {email: "test+adam@gmail.com", encrypted_password: "$2a$10$xZ/gUM9T/v1jccgtyReHwebflOqnaQGX0kyyc6VfkYwnEkay2XKOi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-05-13 23:38:14", last_sign_in_at: "2015-05-13 23:28:09", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Adam", phone: nil, location: nil, balance_id: nil, user_balance_id: nil},
   {email: "test+dan@gmail.com", encrypted_password: "$2a$10$t5/v54GqMRk3wsPnaRIwHuNA0L/sEmG91xYB3I7XmsOAaImn02d5S", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-05-13 23:42:41", last_sign_in_at: "2015-05-13 23:28:39", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Dan", phone: nil, location: nil, balance_id: nil, user_balance_id: nil},
-  {email: "test+robert@gmail.com", encrypted_password: "$2a$10$K9NoN/40uqIw/fBvVfIIQ.OBWvNWQv9yMNXZAUXBwwUjKQn78.7Ia", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-05-13 23:28:59", last_sign_in_at: "2015-05-13 23:28:59", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Robert", phone: nil, location: nil, balance_id: nil, user_balance_id: nil},
+  {email: "test+robert@gmail.com", encrypted_password: "$2a$10$K9NoN/40uqIw/fBvVfIIQ.OBWvNWQv9yMNXZAUXBwwUjKQn78.7Ia", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-05-15 23:21:40", last_sign_in_at: "2015-05-13 23:28:59", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Robert", phone: nil, location: nil, balance_id: nil, user_balance_id: nil},
   {email: "test+zach@gmail.com", encrypted_password: "$2a$10$as7dZpV7zj2iRZ1kb.4IB.0RkZgnEzvxOvbgfcPU3mol8hRceL1W2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-05-13 23:29:18", last_sign_in_at: "2015-05-13 23:29:18", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Zach", phone: nil, location: nil, balance_id: nil, user_balance_id: nil}
 ])
 Book.create!([
@@ -20,7 +20,8 @@ Book.create!([
   {title: "Eragon (Inheritance, Book 1)", author: "Christopher Paolini", isbn: "978-0375826696", condition: "Good", comments: "", owner_email: "test+dan@gmail.com", price: "0.24", due_date: "2015-11-13", image_file_name: "eragon.jpg", image_content_type: "image/jpeg", image_file_size: 81848, image_updated_at: "2015-05-13 23:44:04", genre: "Fantasy", checked_out: false},
   {title: "The Wright Brothers", author: "David McCullough", isbn: "978-1476728742", condition: "Like New", comments: "", owner_email: "test+dan@gmail.com", price: "0.68", due_date: "2015-12-13", image_file_name: "david.jpg", image_content_type: "image/jpeg", image_file_size: 43394, image_updated_at: "2015-05-13 23:46:04", genre: "Non-fiction", checked_out: false},
   {title: "Horton Hears A Who!", author: "Dr. Seuss", isbn: "978-0394800783", condition: "New", comments: "", owner_email: "test+dan@gmail.com", price: "0.12", due_date: "2015-11-15", image_file_name: "horton.jpg", image_content_type: "image/jpeg", image_file_size: 51159, image_updated_at: "2015-05-15 23:16:08", genre: "Fantasy", checked_out: false},
-  {title: "Oh, The Places You'll Go!", author: "Dr. Seuss", isbn: "978-0679805274", condition: "Fair", comments: "", owner_email: "test+dan@gmail.com", price: "0.41", due_date: "2015-11-15", image_file_name: "ohthe.jpg", image_content_type: "image/jpeg", image_file_size: 51849, image_updated_at: "2015-05-15 23:18:49", genre: "Fantasy", checked_out: false}
+  {title: "Oh, The Places You'll Go!", author: "Dr. Seuss", isbn: "978-0679805274", condition: "Fair", comments: "", owner_email: "test+dan@gmail.com", price: "0.41", due_date: "2015-11-15", image_file_name: "ohthe.jpg", image_content_type: "image/jpeg", image_file_size: 51849, image_updated_at: "2015-05-15 23:18:49", genre: "Fantasy", checked_out: false},
+  {title: "The Great Gatsby", author: " F. Scott Fitzgerald", isbn: "978-0743273565", condition: "New", comments: "", owner_email: "test+robert@gmail.com", price: "0.32", due_date: "2016-01-15", image_file_name: "gatsby.jpg", image_content_type: "image/jpeg", image_file_size: 392134, image_updated_at: "2015-05-15 23:22:29", genre: "Action and Adventure", checked_out: false}
 ])
 BookReview.create!([
   {book_id: 1, user_id: 4, rating: 4, review: "hi there\r\n"},
@@ -35,7 +36,9 @@ BookReview.create!([
   {book_id: 9, user_id: 6, rating: 3, review: "this is pretty good"},
   {book_id: 10, user_id: 6, rating: 5, review: "so inspirational"},
   {book_id: 12, user_id: 6, rating: 2, review: "this was alright"},
-  {book_id: 12, user_id: 6, rating: 5, review: "My kid loved it!"}
+  {book_id: 12, user_id: 6, rating: 5, review: "My kid loved it!"},
+  {book_id: 13, user_id: 7, rating: 4, review: "i read this in school. it was alright"},
+  {book_id: 13, user_id: 7, rating: 5, review: "classic!"}
 ])
 Transaction.create!([
   {buyer_email: "test+dan@gmail.com", seller_email: "test+adam@gmail.com", book_id: 7, start_date: "2015-05-14 00:22:19", end_date: "2015-05-15 23:11:07", price: "0.53"}
