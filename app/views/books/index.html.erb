@@ -49,7 +49,7 @@
                     <div class="modal-body">
                       <%= form_tag("/books/update", method: "post", id: "relistBookForm#{book.id}") do %><br/>
                           <%= label_tag(:price, "Daily Price") %>
-                          <%= text_field_tag(:price) %> <br/><br/><br/>
+                          <%= text_field_tag(:price, book.price) %> <br/><br/><br/>
                           <%= label_tag ("Due date:") %>
                           <%= date_select("book_relist", "due_date", order: [:month, :day, :year])%><br/>
                           <%= hidden_field_tag(:from, "relist") %>
