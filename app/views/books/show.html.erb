@@ -1,4 +1,4 @@
-<h1> Your Book Listing </h1>
+<!-- <h1> <%=@book.title%> </h1>  -->
 
 <table class="table table-striped table-hover">
   <thead>
@@ -13,8 +13,8 @@
       <td class="text-center">
         <%= image_tag @book.image.url(:large) %>
       </td>
-      <td>
-        <h3><%= @book.title %></h3>
+      <td style="font-size:18px">
+        <h3><%= @book.title %></h3> 
         <br> <strong>Author:</strong> <%= @book.author %>
         <br> <strong>Genre:</strong> <%= @book.genre %>
         <br> <strong>ISBN:</strong> <%= @book.isbn %>
@@ -32,13 +32,15 @@
     </tr>
   </tbody>
 </table>
-<%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
+<% if current_user.email == @book.owner_email %>
+  <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
+<% end %>
 <%= link_to 'Your book listings', books_path, class: 'btn btn-default' %>
 
 <% if current_user.email != @book.owner_email && @book.checked_out == false %>
-  | <%= form_tag("/transactions/create", method: "post") do %>
+    <%= form_tag("/transactions/create", method: "post", id: "rentForm", :style => "display: inline") do %>
     <%= hidden_field_tag(:book_id, @book.id) %>
-    <%= submit_tag("Rent") %>
+    <button type="submit" form="rentForm" value="Rent" class="btn btn-success">Rent</button>
   <% end %>
 <% end %>
 

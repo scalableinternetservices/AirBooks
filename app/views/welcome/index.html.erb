@@ -17,7 +17,8 @@
   <h3>Books you might be interested in</h3>
     </div>
   <div id="columns">
-    <% @books.each do |book|%>
+    <% @books.each do |book| %>
+       <%= link_to book do %>
         <div class="pin">
         <%= image_tag book.image.url(:medium) %>
         <p>
@@ -25,6 +26,7 @@
         </p>
       </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>
 </div>
