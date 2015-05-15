@@ -9,8 +9,8 @@ User.create!([
   {email: "test+zach@gmail.com", encrypted_password: "$2a$10$as7dZpV7zj2iRZ1kb.4IB.0RkZgnEzvxOvbgfcPU3mol8hRceL1W2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-05-13 23:29:18", last_sign_in_at: "2015-05-13 23:29:18", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Zach", phone: nil, location: nil, balance_id: nil, user_balance_id: nil}
 ])
 Book.create!([
-  {title: "My Book", author: "John Doe", isbn: "23232342342", condition: "Good", comments: "", owner_email: "abcdefg@gmail.com", price: "13.4", due_date: "2015-05-02", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
-  {title: "Awesome Book", author: "Jacob Smith", isbn: "1232342345", condition: "Good", comments: "", owner_email: "abcdefg@gmail.com", price: "42.13", due_date: "2015-05-13", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
+  {title: "Test Book", author: "MATT", isbn: "23232342342", condition: "Good", comments: "", owner_email: "abcdefg@gmail.com", price: "13.4", due_date: "2015-05-02", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
+  {title: "test book 2", author: "mattagra", isbn: "1232342345", condition: "Good", comments: "", owner_email: "abcdefg@gmail.com", price: "42.13", due_date: "2015-05-13", image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
   {title: "Harry Potter", author: "J.K. Rowling", isbn: "123456789", condition: "New", comments: "", owner_email: nil, price: nil, due_date: nil, image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
   {title: "Harry Potter", author: "J.K. Rowling", isbn: "123456789", condition: "New", comments: "", owner_email: nil, price: nil, due_date: nil, image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, genre: nil, checked_out: false},
   {title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling", isbn: "978-0439708180", condition: "New", comments: "", owner_email: "test+zach@gmail.com", price: "0.49", due_date: "2015-08-13", image_file_name: "harry1.jpg", image_content_type: "image/jpeg", image_file_size: 46844, image_updated_at: "2015-05-13 23:34:56", genre: "Fantasy", checked_out: false},
@@ -18,7 +18,9 @@ Book.create!([
   {title: "Twilight (The Twilight Saga, Book 1)", author: "Stephenie Meyer", isbn: "978-0316015844", condition: "Like New", comments: "", owner_email: "test+adam@gmail.com", price: "0.53", due_date: "2015-11-13", image_file_name: "twilight.jpg", image_content_type: "image/jpeg", image_file_size: 22799, image_updated_at: "2015-05-13 23:39:48", genre: "Fantasy", checked_out: false},
   {title: "One Fish Two Fish Red Fish Blue Fish", author: "Dr. Seuss", isbn: "978-0394800134", condition: "Poor", comments: "", owner_email: "test+adam@gmail.com", price: "0.13", due_date: "2015-12-13", image_file_name: "one.jpg", image_content_type: "image/jpeg", image_file_size: 44495, image_updated_at: "2015-05-13 23:42:03", genre: "Fantasy", checked_out: false},
   {title: "Eragon (Inheritance, Book 1)", author: "Christopher Paolini", isbn: "978-0375826696", condition: "Good", comments: "", owner_email: "test+dan@gmail.com", price: "0.24", due_date: "2015-11-13", image_file_name: "eragon.jpg", image_content_type: "image/jpeg", image_file_size: 81848, image_updated_at: "2015-05-13 23:44:04", genre: "Fantasy", checked_out: false},
-  {title: "The Wright Brothers", author: "David McCullough", isbn: "978-1476728742", condition: "Like New", comments: "", owner_email: "test+dan@gmail.com", price: "0.68", due_date: "2015-12-13", image_file_name: "david.jpg", image_content_type: "image/jpeg", image_file_size: 43394, image_updated_at: "2015-05-13 23:46:04", genre: "Non-fiction", checked_out: false}
+  {title: "The Wright Brothers", author: "David McCullough", isbn: "978-1476728742", condition: "Like New", comments: "", owner_email: "test+dan@gmail.com", price: "0.68", due_date: "2015-12-13", image_file_name: "david.jpg", image_content_type: "image/jpeg", image_file_size: 43394, image_updated_at: "2015-05-13 23:46:04", genre: "Non-fiction", checked_out: false},
+  {title: "Horton Hears A Who!", author: "Dr. Seuss", isbn: "978-0394800783", condition: "New", comments: "", owner_email: "test+dan@gmail.com", price: "0.12", due_date: "2015-11-15", image_file_name: "horton.jpg", image_content_type: "image/jpeg", image_file_size: 51159, image_updated_at: "2015-05-15 23:16:08", genre: "Fantasy", checked_out: false},
+  {title: "Oh, The Places You'll Go!", author: "Dr. Seuss", isbn: "978-0679805274", condition: "Fair", comments: "", owner_email: "test+dan@gmail.com", price: "0.41", due_date: "2015-11-15", image_file_name: "ohthe.jpg", image_content_type: "image/jpeg", image_file_size: 51849, image_updated_at: "2015-05-15 23:18:49", genre: "Fantasy", checked_out: false}
 ])
 BookReview.create!([
   {book_id: 1, user_id: 4, rating: 4, review: "hi there\r\n"},
@@ -31,9 +33,14 @@ BookReview.create!([
   {book_id: 7, user_id: 5, rating: 1, review: "This sucks"},
   {book_id: 8, user_id: 5, rating: 4, review: "Great for the kids!"},
   {book_id: 9, user_id: 6, rating: 3, review: "this is pretty good"},
-  {book_id: 10, user_id: 6, rating: 5, review: "so inspirational"}
+  {book_id: 10, user_id: 6, rating: 5, review: "so inspirational"},
+  {book_id: 12, user_id: 6, rating: 2, review: "this was alright"},
+  {book_id: 12, user_id: 6, rating: 5, review: "My kid loved it!"}
+])
+Transaction.create!([
+  {buyer_email: "test+dan@gmail.com", seller_email: "test+adam@gmail.com", book_id: 7, start_date: "2015-05-14 00:22:19", end_date: "2015-05-15 23:11:07", price: "0.53"}
 ])
 UserBalance.create!([
   {balance: "87.0", user_id: 4},
-  {balance: "50.0", user_id: 6}
+  {balance: "150.0", user_id: 6}
 ])
