@@ -16,12 +16,12 @@
 
 <p>
   <strong>Total Price:</strong>
-  <%= @transaction.price %>
+  <%= @transaction.price * (Date.today - @transaction.start_date.to_date).to_i %>
 </p>
 
 <p>
   <strong>Average Price Per Day:</strong>
-  <%= @transaction.price * (Date.today - @transaction.start_date.to_date).to_i %>
+  <%= @transaction.price %>
 </p>
 
 <p>
