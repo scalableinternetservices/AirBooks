@@ -31,7 +31,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <% if user_signed_in? %>
                       <li>
-                        <p class="navbar-text" style="color:#ffffff">Logged in as <strong><%= current_user.name %></strong>.</p>
+                        <p class="navbar-text" style="color:#ffffff">Logged in as <%= link_to current_user.name, profile_path(current_user), :class => 'navbar-link' %>.</p>
                       </li>
                       <li>
                         <%= link_to 'Your account', account_home_path, :class => 'navbar-link' %>
