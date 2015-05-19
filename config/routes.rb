@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'profile/edit' => 'profile#edit'
   get 'profile/:id' => 'profile#show', as: :profile
   get 'profile' => 'profile#redirect'
-  patch 'profile' => 'profile#update'
+  patch 'profile/:id' => 'profile#update'
 
   resources :books do
     resources :reviews
