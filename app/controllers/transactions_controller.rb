@@ -62,14 +62,35 @@ class TransactionsController < ApplicationController
   # DELETE /books/1.json
   def destroy
     if @transaction.end_date.nil?
-      @transaction.end_date = DateTime.now
-      @transaction.save
-      Book.find_by_id(@transaction.book_id).update_attribute :checked_out, false
+      total_price = @transaction.price * (Date.today - @transaction.start_date.to_date).to_i
+      # current_user is renter
+      current_renter_balance = current_user.user_balance.balance
+      lender = get_user_by_email(@transaction.seller_email)
+      current_lender_balance = lender.user_balance.balance
+      new_renter_balance = current_renter_balance - total_price
+      new_lender_balance = current_lender_balance + total_price
+      if total_price <= current_renter_balance
+        @transaction.end_date = DateTime.now
+        @transaction.save
+        Book.find_by_id(@transaction.book_id).update_attribute :checked_out, false
+        total_price = @transaction.price * (Date.today - @transaction.start_date.to_date).to_i
+        current_user.user_balance.update_attribute :balance, (new_renter_balance)
+        lender.user_balance.update_attribute :balance, (new_lender_balance)
+        respond_to do |format|
+          format.html { redirect_to transactions_url , notice: 'Book was successfully returned.' }
+          #format.html { redirect_to url_for(controller: 'balance', action: 'update', balance: total_price, update_type: 'remove') , notice: 'Book was successfully returned.' }
+          format.json { head :no_content }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to transactions_url, notice: "Insufficient Balance! Please add at least #{ActionController::Base.helpers.number_to_currency(-new_renter_balance)} to complete this transaction." }
+          #format.html { redirect_to url_for(controller: 'balance', action: 'update', balance: total_price, update_type: 'remove') , notice: 'Book was successfully returned.' }
+          format.json { head :no_content }
+        end
+      end
+
     end
-    respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Book was successfully returned.' }
-      format.json { head :no_content }
-    end
+
   end
   def return_book
     @transaction.end_date = DateTime.now
