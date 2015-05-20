@@ -32,15 +32,18 @@
     </tr>
   </tbody>
 </table>
-<% if current_user.email == @book.owner_email %>
-  <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
-<% end %>
-<%= link_to 'Your book listings', books_path, class: 'btn btn-default' %>
 
-<% if current_user.email != @book.owner_email && @book.checked_out == false %>
-    <%= form_tag("/transactions/create", method: "post", id: "rentForm", :style => "display: inline") do %>
-    <%= hidden_field_tag(:book_id, @book.id) %>
-    <button type="submit" form="rentForm" value="Rent" class="btn btn-success">Rent</button>
+<% if !current_user.nil? %>
+  <% if current_user.email == @book.owner_email %>
+    <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> &nbsp;
+  <% end %>
+  <%= link_to 'Your book listings', books_path, class: 'btn btn-default' %>
+
+  <% if current_user.email != @book.owner_email && @book.checked_out == false %>
+      <%= form_tag("/transactions/create", method: "post", id: "rentForm", :style => "display: inline") do %>
+      <%= hidden_field_tag(:book_id, @book.id) %>
+      <button type="submit" form="rentForm" value="Rent" class="btn btn-success">Rent</button>
+    <% end %>
   <% end %>
 <% end %>
 
@@ -60,4 +63,6 @@
   <% end %>
 </div>
 
-<%= link_to 'New Review', new_book_review_path(@book), class: 'btn btn-info'  %>
+<% if !current_user.nil? %>
+  <%= link_to 'New Review', new_book_review_path(@book), class: 'btn btn-info'  %>
+<% end %>
