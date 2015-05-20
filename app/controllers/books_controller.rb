@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    redirect_to @book unless current_user.email == @book.owner_email
   end
 
   # POST /books
