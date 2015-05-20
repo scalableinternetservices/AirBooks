@@ -2,13 +2,14 @@
 
 <h1>Your Transactions</h1>
 
+<div class="col-xs-6">
+<h2 class="sub-header">Books you have rented</h2>
 <table class="table table-striped">
+
   <thead>
     <tr>
-      <th>Start Date</th>
       <th>Status</th>
       <th>Book Title</th>
-      <th>Book Author</th>
       <th>Total Price</th>
       <th>Owner</th>
       <th colspan="20"></th>
@@ -16,16 +17,14 @@
   </thead>
 
   <tbody>
-    <% @transactions.each do |transaction| %>
+    <% @transactions.where("buyer_email = ?", current_user.email).each do |transaction| %>
       <tr>
-        <td><%= transaction.start_date.strftime('%m/%d/%Y') %></td>
         <% if !transaction.end_date.nil? %>
           <td style="color:green">Closed on <%= transaction.end_date.strftime('%m/%d/%Y') %></td>
         <% else %>
           <td style="color:red">Due on <%= get_book(transaction.book_id).due_date.strftime('%m/%d/%Y') %></td>
         <% end %>
         <td><%= get_book(transaction.book_id).title %></td>
-        <td><%= get_book(transaction.book_id).author %></td>
         <td><%= transaction.price * (Date.today - transaction.start_date.to_date).to_i %></td>
         <td><%= transaction.seller_email %></td>
         <td><%= link_to 'View', transaction %></td>
@@ -33,6 +32,35 @@
     <% end %>
   </tbody>
 </table>
-</table>
+</div>
+<div class="col-xs-6">
+<h2 class="sub-header">Books you have lent</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Book Title</th>
+      <th>Total Price</th>
+      <th>Renter</th>
+      <th colspan="20"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @transactions.where("seller_email = ?", current_user.email).each do |transaction| %>
+      <tr>
+        <% if !transaction.end_date.nil? %>
+          <td style="color:green">Closed on <%= transaction.end_date.strftime('%m/%d/%Y') %></td>
+        <% else %>
+          <td style="color:red">Due on <%= get_book(transaction.book_id).due_date.strftime('%m/%d/%Y') %></td>
+        <% end %>
+        <td><%= get_book(transaction.book_id).title %></td>
+        <td><%= transaction.price * (Date.today - transaction.start_date.to_date).to_i %></td>
+        <td><%= transaction.buyer_email %></td>
+        <td><%= link_to 'View', transaction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
 <br>
