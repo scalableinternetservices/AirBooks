@@ -1,0 +1,82 @@
+<h1> <%= @user.name %> </h1>
+
+<p>Joined <%= @user.created_at.strftime('%B %Y') %></p>
+<p>
+  <% if !@user.occupation.blank? then %>
+    <%= @user.occupation %><br />
+  <% end %>
+  <% if !@user.location.blank? then %>
+    <%= @user.location %><br />
+  <% end %>
+  <% if !@user.phone.blank? then %>
+    <%= @user.phone %><br />
+  <% end %>
+  <% if !@user.public_email.blank? then %>
+    <%= @user.public_email %><br />
+  <% end %>
+  <% if !@user.website.blank? then %>
+    <%= link_to @user.website, @user.website %><br />
+  <% end %>
+</p>
+
+<div class="row">
+  <% if !@user.about_me.blank? then %>
+    <div class="col-lg-6">
+      <h3>About Me</h3>
+      <p><%= @user.about_me %></p>
+    </div>
+  <% end %>
+  <% if !@user.interests.blank? then %>
+    <div class="col-lg-6">
+      <h3>Interests</h3>
+      <p><%= @user.interests %></p>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <h2>Books Borrowed</h2>
+    <table class="table table-striped">
+      <% @borrowed_transactions.each do |transaction| %>
+        <tr>
+          <td>
+            <%= link_to get_book(transaction.book_id).title, book_path(transaction.book_id) %> by
+            <%= get_book(transaction.book_id).author %>
+          </td>
+          <td class="text-right">
+            <small>
+              <%= transaction.start_date.strftime('%B %Y') %> from
+              <%= link_to get_user_by_email(transaction.seller_email).name, profile_path(get_user_by_email(transaction.seller_email)) %>
+            </small>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-lg-6">
+    <h2>Books Lent</h2>
+    <table class="table table-striped">
+      <% @lent_transactions.each do |transaction| %>
+        <tr>
+          <td>
+            <%= link_to get_book(transaction.book_id).title, book_path(transaction.book_id) %> by <%= get_book(transaction.book_id).author %> 
+          </td>
+          <td class="text-right">
+            <small>
+              <%= transaction.start_date.strftime('%B %Y') %> from
+              <%= link_to get_user_by_email(transaction.buyer_email).name, profile_path(get_user_by_email(transaction.buyer_email)) %>
+            </small>
+          </td>
+        </tr>
+    <% end %>
+    </table>
+  </div>
+
+</div>
+
+<br />
+<% if @user == current_user %>
+  <%= link_to 'Edit Profile', profile_edit_path, class: 'btn btn-default'  %>
+<% end %>

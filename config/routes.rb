@@ -9,11 +9,14 @@ Rails.application.routes.draw do
 
   get 'search/results/' => 'search#results'
 
+  get 'profile/edit' => 'profile#edit'
+  get 'profile/:id' => 'profile#show', as: :profile
+  get 'profile' => 'profile#redirect'
+  patch 'profile/:id' => 'profile#update'
 
   resources :books do
     resources :reviews
   end
-  post 'books/update/' => 'books#update'
   
   post 'transactions/create/' => 'transactions#create'
   get 'transactions/return_book/' => 'transactions#return_book'

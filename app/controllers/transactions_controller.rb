@@ -76,13 +76,6 @@ class TransactionsController < ApplicationController
     @transaction.save
   end
 
-  def get_book(book_id)
-      Book.find(book_id)
-  end
-  def get_seller(seller_email)
-      User.find_by_email(seller_email)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
