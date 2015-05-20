@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  include ActionView::Helpers::UrlHelper
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:create]
   before_filter :authenticate_user!
@@ -77,13 +78,14 @@ class TransactionsController < ApplicationController
         current_user.user_balance.update_attribute :balance, (new_renter_balance)
         lender.user_balance.update_attribute :balance, (new_lender_balance)
         respond_to do |format|
-          format.html { redirect_to transactions_url , notice: 'Book was successfully returned.' }
+          format.html { redirect_to transactions_url , notice: 'Book was successfully returned. Your balance has been updated.' }
           #format.html { redirect_to url_for(controller: 'balance', action: 'update', balance: total_price, update_type: 'remove') , notice: 'Book was successfully returned.' }
           format.json { head :no_content }
         end
       else
         respond_to do |format|
-          format.html { redirect_to transactions_url, notice: "Insufficient Balance! Please add at least #{ActionController::Base.helpers.number_to_currency(-new_renter_balance)} to complete this transaction." }
+          @temp = true
+          format.html { redirect_to transactions_url, notice: "Insufficient Balance! Please deposit at least #{ActionController::Base.helpers.number_to_currency(-new_renter_balance)} to complete this transaction." }
           #format.html { redirect_to url_for(controller: 'balance', action: 'update', balance: total_price, update_type: 'remove') , notice: 'Book was successfully returned.' }
           format.json { head :no_content }
         end

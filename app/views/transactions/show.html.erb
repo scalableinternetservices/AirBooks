@@ -39,8 +39,8 @@
   <%= get_seller(@transaction.seller_email).name %>
 </p>
 
-<% if @transaction.end_date.nil? %>
-  <%= link_to 'Return Book', @transaction, method: :delete, data: { confirm: 'Are you sure you want to return this book?' } %> |
+<% if @transaction.end_date.nil? && current_user.email == @transaction.buyer_email %>
+  <%= link_to 'Return Book', @transaction, method: :delete, data: { confirm: 'Are you sure you want to return this book?' }, class: 'btn btn-primary' %>
 <% else %>
 <% end %> 
-<%= link_to 'Your Transactions', transactions_path %>
+<%= link_to 'Your Transactions', transactions_path, class: 'btn btn-default' %>
