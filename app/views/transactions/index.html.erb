@@ -1,6 +1,8 @@
 <!-- <p id="notice"> -->
 <% if !notice.nil? %>
-  <%= link_to "Deposit Funds Now!", current_user.user_balance, class: 'btn btn-default' %></p>
+  <% if notice.include? "Insufficient Balance" %>
+    <%= link_to "Deposit Funds Now!", current_user.user_balance, class: 'btn btn-default' %></p>
+  <% end %>
 <% end %>
 
 <h1>Your Transactions</h1>
