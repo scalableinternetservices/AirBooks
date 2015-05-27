@@ -1,5 +1,4 @@
 class TransactionsController < ApplicationController
-  include ActionView::Helpers::UrlHelper
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:create]
   before_filter :authenticate_user!
@@ -112,7 +111,7 @@ class TransactionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
       # params.require(:transaction)
-      additional_params = {}
+      # additional_params = {}
       additional_params = {buyer_email: current_user.email, seller_email: @book.owner_email, start_date: DateTime.now, price: @book.price}
       params.permit(:book_id).merge(additional_params)
     end
