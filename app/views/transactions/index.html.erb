@@ -28,7 +28,7 @@
           <td style="color:red">Due on <%= get_book(transaction.book_id).due_date.strftime('%m/%d/%Y') %></td>
         <% end %>
         <td><%= get_book(transaction.book_id).title %></td>
-        <td><%= transaction.price * (Date.today - transaction.start_date.to_date) %></td>
+        <td><%= transaction.price * ((Date.today - transaction.start_date.to_date) + 1) %></td>
         <td><%= transaction.seller_email %></td>
         <td><%= link_to 'View', transaction %></td>
       </tr>
@@ -58,7 +58,7 @@
           <td style="color:red">Due on <%= get_book(transaction.book_id).due_date.strftime('%m/%d/%Y') %></td>
         <% end %>
         <td><%= get_book(transaction.book_id).title %></td>
-        <td><%= transaction.price * (Date.today - transaction.start_date.to_date).to_i %></td>
+        <td><%= transaction.price * ((Date.today - transaction.start_date.to_date).to_i + 1) %></td>
         <td><%= transaction.buyer_email %></td>
         <td><%= link_to 'View', transaction %></td>
       </tr>

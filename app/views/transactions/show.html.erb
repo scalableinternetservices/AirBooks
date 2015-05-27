@@ -16,7 +16,7 @@
 
 <p>
   <strong>Total Price:</strong>
-  <%= @transaction.price * (Date.today - @transaction.start_date.to_date).to_i %>
+  <%= @transaction.price * ((Date.today - @transaction.start_date.to_date).to_i + 1) %>
 </p>
 
 <p>

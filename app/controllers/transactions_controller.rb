@@ -62,7 +62,7 @@ class TransactionsController < ApplicationController
   # DELETE /books/1.json
   def destroy
     if @transaction.end_date.nil?
-      total_price = @transaction.price * (Date.today - @transaction.start_date.to_date).to_i
+      total_price = @transaction.price * ((Date.today - @transaction.start_date.to_date).to_i + 1)
       # current_user is renter
       current_renter_balance = current_user.user_balance.balance
       lender = get_user_by_email(@transaction.seller_email)
