@@ -85,7 +85,7 @@ Rails.application.configure do
           :region => 'us-west-2'
       },
       :fog_directory => 'scalableinternetservices',
-      :path => 'AirBooks/'
+      :path => 'AirBooks/images/:id/:style/:filename'
   }
 
 end
