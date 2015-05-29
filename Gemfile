@@ -29,6 +29,8 @@ gem 'devise'
 
 # Paperclip gem for attachment
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk','<2.0'
+gem 'fog'
 
 # Seed dump creates seeds file from data in existing database
 gem 'seed_dump'
