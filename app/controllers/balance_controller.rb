@@ -10,14 +10,26 @@ class BalanceController < ApplicationController
 
   def add
     @balance = current_user.user_balance
+    if !@balance then
+      @balance = UserBalance.new
+      current_user.user_balance = @balance
+    end
   end
 
   def remove
     @balance = current_user.user_balance
+    if !@balance then
+      @balance = UserBalance.new
+      current_user.user_balance = @balance
+    end
   end
 
   def update
     @balance = current_user.user_balance
+    if !@balance then
+      @balance = UserBalance.new
+      current_user.user_balance = @balance
+    end
     attributes = user_balance_params.clone
     # render :text => attributes[:update_type]
     if attributes['update_type'].eql? 'add' then

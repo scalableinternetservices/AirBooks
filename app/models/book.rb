@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
     text :title, :default_boost => 2
     text :author, :default_boost => 2
 
-    integer :isbn
+    string :isbn
     string :owner_email
     string :image_file_name
 
