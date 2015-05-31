@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
@@ -31,6 +30,15 @@ gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk','<2.0'
 gem 'fog'
+
+# Sunspot gem for full text searching
+gem 'sunspot_rails'
+gem 'sunspot_solr' # self hosted server (good for development)
+gem 'progress_bar'
+
+# pagination
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 # Seed dump creates seeds file from data in existing database
 gem 'seed_dump'

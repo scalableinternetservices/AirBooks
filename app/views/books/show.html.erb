@@ -44,6 +44,8 @@
       <%= hidden_field_tag(:book_id, @book.id) %>
       <button type="submit" form="rentForm" value="Rent" class="btn btn-success">Rent</button>
     <% end %>
+  <% elsif current_user.email != @book.owner_email %>
+        <a href="#" class="btn btn-danger disabled">Unavailable</a>
   <% end %>
 <% end %>
 

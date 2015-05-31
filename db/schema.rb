@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530052056) do
+ActiveRecord::Schema.define(version: 20150531022856) do
 
   create_table "book_reviews", force: :cascade do |t|
     t.integer  "book_id",    limit: 4
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150530052056) do
   create_table "books", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.string   "author",             limit: 255
-    t.string   "isbn",               limit: 255
+    t.integer  "isbn",               limit: 4
     t.string   "condition",          limit: 255
     t.text     "comments",           limit: 65535
     t.string   "owner_email",        limit: 255

@@ -10,7 +10,22 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     # @transactions = Transaction.where(buyer_email: current_user.email).or(seller_email: current_user.email)
-    @transactions = Transaction.where('buyer_email=? OR seller_email= ?', current_user.email, current_user.email)
+    @transactions = Transaction.where('buyer_email=? OR seller_email= ?', current_user.email, current_user.email) #check index descening order
+
+    buy = Transaction.search do
+      with(:buyer_email, current_user.email)
+      order_by(:updated_at, :desc)
+      paginate :page => params[:buy_page], :per_page => 12
+    end
+
+    sell = Transaction.search do
+      with(:seller_email, current_user.email)
+      order_by(:updated_at, :desc)
+      paginate :page => params[:sell_page], :per_page => 12
+    end
+
+    @buy_transaction = buy.results
+    @sell_transaction = sell.results
   end
 
   # GET /transactions/1

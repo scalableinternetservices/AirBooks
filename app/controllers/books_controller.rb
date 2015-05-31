@@ -5,13 +5,18 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.where(owner_email: current_user.email)
+    list = Book.search do
+      with(:owner_email, current_user.email)
+      order_by(:updated_at, :desc)
+      paginate :page => params[:page], :per_page => 10
+    end
+    @books = list.results
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
-    @reviews = Book.find(@book).book_review.order("created_at DESC")
+    @reviews = Book.find(@book).book_review.order("created_at DESC") #check index
   end
 
   # GET /books/new
