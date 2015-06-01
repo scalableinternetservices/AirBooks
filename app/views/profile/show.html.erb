@@ -53,6 +53,9 @@
         </tr>
       <% end %>
     </table>
+    <div style="text-align: center">
+      <%= will_paginate @borrowed_transactions, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'buy_page' %>
+    </div>
   </div>
 
   <div class="col-lg-6">
@@ -72,6 +75,9 @@
         </tr>
     <% end %>
     </table>
+    <div style="text-align: center">
+      <%= will_paginate @lent_transactions, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'sell_page' %>
+    </div>
   </div>
 
 </div>

@@ -17,5 +17,8 @@ class Book < ActiveRecord::Base
     string  :sort_title do
       title.downcase.gsub(/^(an?|the)/, '')
     end
+
+    handle_asynchronously :solr_index, queue: 'indexing', priority: 50
+    handle_asynchronously :solr_index!, queue: 'indexing', priority: 50
   end
 end

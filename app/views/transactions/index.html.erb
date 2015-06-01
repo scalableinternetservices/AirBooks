@@ -36,11 +36,9 @@
     <% end %>
   </tbody>
 </table>
-  <tr>
-    <div style="text-align: center">
-      <%= will_paginate @buy_transaction, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'buy_page' %>
-    </div>
-  </tr>
+  <div style="text-align: center">
+    <%= will_paginate @buy_transaction, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'buy_page' %>
+  </div>
 </div>
 
 <div class="col-xs-6">
@@ -72,10 +70,8 @@
     <% end %>
   </tbody>
 </table>
-  <tr>
-    <div style="text-align: center">
-      <%= will_paginate @sell_transaction, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'sell_page' %>
-    </div>
-  </tr>
+  <div style="text-align: center">
+    <%= will_paginate @sell_transaction, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, :param_name => 'sell_page' %>
+  </div>
 </div>
 <br>

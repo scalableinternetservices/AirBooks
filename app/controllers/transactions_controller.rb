@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     # @transactions = Transaction.where(buyer_email: current_user.email).or(seller_email: current_user.email)
-    @transactions = Transaction.where('buyer_email=? OR seller_email= ?', current_user.email, current_user.email) #check index descening order
+    # @transactions = Transaction.where('buyer_email=? OR seller_email= ?', current_user.email, current_user.email) #check index descening order
 
     buy = Transaction.search do
       with(:buyer_email, current_user.email)

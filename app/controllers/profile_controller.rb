@@ -11,8 +11,20 @@ class ProfileController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @lent_transactions = Transaction.where('seller_email= ?', @user.email)
-    @borrowed_transactions = Transaction.where('buyer_email=?', @user.email)
+    buy = Transaction.search do
+      with(:buyer_email, current_user.email)
+      order_by(:updated_at, :desc)
+      paginate :page => params[:buy_page], :per_page => 12
+    end
+
+    sell = Transaction.search do
+      with(:seller_email, current_user.email)
+      order_by(:updated_at, :desc)
+      paginate :page => params[:sell_page], :per_page => 12
+    end
+
+    @borrowed_transactions = buy.results
+    @lent_transactions = sell.results
   end
 
   def edit
