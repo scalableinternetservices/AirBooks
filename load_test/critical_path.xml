@@ -54,14 +54,14 @@
         </http>
       </request>
       
-      <thinktime random='true' value='2'/>
+      <thinktime random='true' value='1'/>
       
       <request>
         <http url='/users/sign_up' version='1.1' method='GET'>
         </http>
       </request>
 
-      <thinktime random='true' value='5'/>
+      <thinktime random='true' value='1'/>
 
       <setdynvars sourcetype="random_number" start="100000" end="999999">
         <var name="random_email" />
@@ -77,14 +77,14 @@
         </http>
       </request>
 
-      <thinktime random='true' value='2'/>
+      <thinktime random='true' value='1'/>
 
       <request>
         <http url='/books/new' version='1.1' method='GET'>
         </http>
       </request>
 
-      <thinktime random='true' value='8'/>
+      <thinktime random='true' value='1'/>
 
       <setdynvars sourcetype="random_number" start="100000" end="999999">
         <var name="random_title" />
@@ -103,8 +103,6 @@
       </setdynvars>
 
       <request subst="true">
-        <dyn_variable name="created_book_url" re="[Ll]ocation: (http://.*)\r"/>
-        <dyn_variable name="created_book_id" re="[Ll]ocation: http://.*/books/(.*)\r"/>
         <http
           url='/books'
           version='1.1'
@@ -113,80 +111,56 @@
         </http>
       </request>
 
-      <request>
-        <http url='/balance' version='1.1'  method='GET'>
-        </http>
-      </request>
-
-      <request>
-        <http url='/users/sign_out' version='1.1'  contents='_method=delete' method='POST'>
-        </http>
-      </request>
-
-      <request>
-        <http url='/' version='1.1' method='GET'>
-        </http>
-      </request>
-      
-      <thinktime random='true' value='2'/>
-      
-      <request>
-        <http url='/users/sign_up' version='1.1' method='GET'>
-        </http>
-      </request>
-
-      <thinktime random='true' value='5'/>
-
-      <setdynvars sourcetype="random_number" start="100000" end="999999">
-        <var name="random_email" />
-      </setdynvars>
-
-      <request subst="true">
-        <http url='/users' version='1.1'  contents='utf8=%E2%9C%93&amp;user%5Bname%5D=test_name&amp;user%5Bemail%5D=test%%_random_email%%%40airbooks.com&amp;user%5Bpassword%5D=tsungtsung&amp;user%5Bpassword_confirmation%5D=tsungtsung&amp;commit=Sign+up' method='POST'>
-        </http>
-      </request>
-
-        <request subst="true">
-          <http url='/search/results/?q=%%_random_title%%' version='1.1' method='GET'>
+        <request>
+          <http url='/account' version='1.1' method='GET'>
           </http>
         </request>
 
-      <thinktime random='true' value='2'/>
-
-        <request>
-          <http url='/account' version='1.1' method='GET'>
-        </http>
-        </request>
-
-        <thinktime random='true' value='2'/>
+        <thinktime random='true' value='1'/>
 
         <request>
           <http url='/balance' version='1.1' method='GET'>
         </http>
         </request>
 
-        <thinktime random='true' value='2'/>
+        <thinktime random='true' value='1'/>
 
         <request>
           <http url='/balance/add' version='1.1' method='GET'>
         </http>
         </request>
 
-        <thinktime random='true' value='2'/>
+        <thinktime random='true' value='1'/>
 
         <request>
         <http url='/balance' version='1.1'  contents='utf8=%E2%9C%93&amp;_method=patch&amp;user_balance%5Bbalance%5D=5&amp;user_balance%5Bupdate_type%5D=add&amp;commit=Add+Funds' method='POST'>
         </http>
       </request>
 
-      <thinktime random='true' value='2'/>
+      <thinktime random='true' value='1'/>
+
+      <setdynvars sourcetype="random_number" start="10" end="99">
+        <var name="random_book_id_1" />
+      </setdynvars>
+
+      <request subst="true">
+        <http url='/search/results/?q=%%_random_book_id_1%%' version='1.1' method='GET'>
+        </http>
+      </request>
+
+      <thinktime random='true' value='1'/>
+
+
+      <setdynvars sourcetype="random_number" start="100" end="999">
+        <var name="random_book_id_2" />
+      </setdynvars>
 
         <request subst="true">
-          <http url='/books/%%_created_book_id%%' version='1.1' method='GET'>
+          <http url='/books/%%_random_book_id_1%%%%_random_book_id_2%%' version='1.1' method='GET'>
           </http>
         </request>
 
-        <thinktime random='true' value='2'/>
+        <thinktime random='true' value='1'/>
 
         <request subst="true">
           <dyn_variable name="created_transaction_id" re="[Ll]ocation: http://.*/transactions/(.*)\r"/>
@@ -194,11 +168,11 @@
             url='/transactions/create'
             version='1.1'
             method='POST'
-            contents='utf8=%E2%9C%93&amp;book_id=%%_created_book_id%%'>
+            contents='utf8=%E2%9C%93&amp;book_id=%%_random_book_id_1%%%%_random_book_id_2%%'>
           </http>
         </request>
 
-        <thinktime random='true' value='2'/>
+        <thinktime random='true' value='1'/>
 
         <request subst="true">
           <http url='/transactions/%%_created_transaction_id%%' version='1.1'  contents='_method=delete' method='POST'>
