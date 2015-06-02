@@ -34,37 +34,12 @@
 
   <sessions>
     <session name='populate' probability='100'  type='ts_http'>
-      <transaction name="Sign_Up">
-      <request>
-        <http url='/' version='1.1' method='GET'>
-        </http>
-      </request>
-      
-      <thinktime random='true' value='2'/>
-      
-      <request>
-        <http url='/users/sign_up' version='1.1' method='GET'>
-        </http>
-      </request>
-
-      <thinktime random='true' value='5'/>
-
-      <setdynvars sourcetype="random_number" start="100000" end="999999">
-        <var name="random_email" />
-      </setdynvars>
-
       <request subst="true">
-        <http url='/users' version='1.1'  contents='utf8=%E2%9C%93&amp;user%5Bname%5D=test_name&amp;user%5Bemail%5D=test%%_random_email%%%40airbooks.com&amp;user%5Bpassword%5D=tsungtsung&amp;user%5Bpassword_confirmation%5D=tsungtsung&amp;commit=Sign+up' method='POST'>
+        <http url='/users' version='1.1'  contents='utf8=%E2%9C%93&amp;user%5Bname%5D=test_name&amp;user%5Bemail%5D=owner%40airbooks.com&amp;user%5Bpassword%5D=tsungtsung&amp;user%5Bpassword_confirmation%5D=tsungtsung&amp;commit=Sign+up' method='POST'>
         </http>
       </request>
-      </transaction>
 
-      <transaction name="Post_a_Book">
-
-      <for from="1" to="1000" incr="1" var="counter">
-      <setdynvars sourcetype="random_number" start="100000" end="999999">
-        <var name="random_title" />
-      </setdynvars>
+      <for from="1" to="100000" incr="1" var="counter">
 
       <setdynvars sourcetype="random_string" length="8">
         <var name="random_first_name" />
@@ -79,13 +54,12 @@
       </setdynvars>
 
       <request subst="true">
-        <http url='/books' version='1.1'  contents='utf8=%E2%9C%93&amp;book%5Btitle%5D=%%_random_email%%_%%_random_title%%&amp;book%5Bauthor%5D=%%_random_first_name%%+%%_random_last_name%%&amp;book%5Bgenre%5D=Non-fiction&amp;book%5Bisbn%5D=%%_random_isbn%%&amp;book%5Bcondition%5D=Good&amp;book%5Bprice%5D=1.11&amp;book%5Bdue_date%282i%29%5D=11&amp;book%5Bdue_date%283i%29%5D=27&amp;book%5Bdue_date%281i%29%5D=2016&amp;book%5Bcomments%5D=test_comment&amp;commit=Create+Book' method='POST'>
+        <http url='/books' version='1.1'  contents='utf8=%E2%9C%93&amp;book%5Btitle%5D=counter&amp;book%5Bauthor%5D=%%_random_first_name%%+%%_random_last_name%%&amp;book%5Bgenre%5D=Non-fiction&amp;book%5Bisbn%5D=%%_random_isbn%%&amp;book%5Bcondition%5D=Good&amp;book%5Bprice%5D=1.11&amp;book%5Bdue_date%282i%29%5D=11&amp;book%5Bdue_date%283i%29%5D=27&amp;book%5Bdue_date%281i%29%5D=2016&amp;book%5Bcomments%5D=test_comment&amp;commit=Create+Book' method='POST'>
         </http>
       </request>
       </for>
  
       </transaction>
-
     </session>
   </sessions>
 </tsung>
