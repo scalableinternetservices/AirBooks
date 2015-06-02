@@ -4,8 +4,8 @@ class Transaction < ActiveRecord::Base
     string :seller_email
 
     time    :updated_at
-
-    handle_asynchronously :solr_index, queue: 'indexing', priority: 50
-    handle_asynchronously :solr_index!, queue: 'indexing', priority: 50
   end
+
+  handle_asynchronously :solr_index, queue: 'indexing', priority: 50
+  handle_asynchronously :solr_index!, queue: 'indexing', priority: 50
 end
