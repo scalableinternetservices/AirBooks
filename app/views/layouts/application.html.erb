@@ -3,15 +3,12 @@
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet">
 
-        <% if controller_name == 'welcome' %>
-          <link rel="stylesheet" href="/assets/image-tile.css">
-          <!-- stylesheet_link_tag 'metro-bootstrap-tile.min' %> -->
-        <% end %>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <title>Airbooks</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <% cache do %>
+          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
+        <% end %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
     </head>
